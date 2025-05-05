@@ -1,70 +1,194 @@
-# Getting Started with Create React App
+# MiN NEW YORK CEO Dashboard
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A comprehensive executive dashboard for MiN NEW YORK luxury fragrance brand, featuring real-time KPIs, voice commands via Grok AI, and detailed analytics for sales, inventory, and social media performance.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- **Real-time KPI Monitoring**: Track critical business metrics at a glance
+- **Voice Command Integration**: Use Grok AI to query data and trigger actions by voice
+- **Sales Analytics**: Analyze revenue trends, top products, and channel performance
+- **Inventory Management**: Monitor stock levels across multiple warehouses (Las Vegas, Nice, Dubai, Riyadh)
+- **Social Media Metrics**: Track performance across Instagram and TikTok platforms
+- **Luxury UI Design**: Premium aesthetic matching the MiN NEW YORK brand identity
 
-### `npm start`
+## Technical Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend**: React.js with Context API for state management
+- **Charts & Visualization**: Chart.js with React-Chartjs-2
+- **Styling**: Custom CSS with responsive design
+- **API Integration**:
+  - WooCommerce REST API via n8n workflows
+  - Grok xAI API for voice commands and AI analysis
+  - Social media APIs (Instagram, TikTok)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v16 or higher)
+- npm or yarn
+- WooCommerce store with REST API access
+- Grok subscription (X Premium+ or SuperGrok)
+- Instagram & TikTok business accounts (for production use)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+   ```
+   git clone https://github.com/your-username/min-ceo-dashboard.git
+   cd min-ceo-dashboard
+   ```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+2. Install dependencies:
 
-### `npm run eject`
+   ```
+   npm install
+   ```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. Create a `.env` file in the root directory with your API keys:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+   ```
+   REACT_APP_WOOCOMMERCE_URL=your_woocommerce_url
+   REACT_APP_WOOCOMMERCE_CONSUMER_KEY=your_consumer_key
+   REACT_APP_WOOCOMMERCE_CONSUMER_SECRET=your_consumer_secret
+   REACT_APP_GROK_API_KEY=your_grok_api_key
+   REACT_APP_INSTAGRAM_API_KEY=your_instagram_api_key
+   REACT_APP_TIKTOK_API_KEY=your_tiktok_api_key
+   REACT_APP_N8N_BASE_URL=your_n8n_instance_url
+   REACT_APP_N8N_API_KEY=your_n8n_api_key
+   ```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+4. Start the development server:
+   ```
+   npm start
+   ```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Project Structure
 
-## Learn More
+```
+min-ceo-dashboard/
+│
+├── public/
+│   ├── favicon.ico
+│   ├── index.html
+│   ├── logo.png
+│   └── manifest.json
+│
+├── src/
+│   ├── api/
+│   │   ├── grok.js           # Grok API integration
+│   │   ├── n8n.js            # n8n workflow integration
+│   │   ├── socialMedia.js    # Social media API integration
+│   │   └── woocommerce.js    # WooCommerce API integration
+│   │
+│   ├── components/
+│   │   ├── common/           # Reusable components
+│   │   ├── GrokVoiceCommandPanel.js
+│   │   ├── Header.js
+│   │   ├── InventoryStatus.js
+│   │   ├── MarketTrends.js
+│   │   ├── SalesOverview.js
+│   │   ├── Sidebar.js
+│   │   └── SocialMediaMetrics.js
+│   │
+│   ├── contexts/
+│   │   ├── AuthContext.js    # Authentication provider
+│   │   ├── DataContext.js    # Data provider
+│   │   └── ThemeContext.js   # Theme provider
+│   │
+│   ├── styles/               # Component styles
+│   │
+│   ├── App.js
+│   └── index.js
+│
+├── .env
+├── .gitignore
+├── package.json
+└── README.md
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Grok Voice Commands
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+The dashboard supports the following voice commands via Grok AI:
 
-### Code Splitting
+- "Summarize today's sales performance"
+- "Show inventory levels in [warehouse name]"
+- "What's our Instagram engagement this week?"
+- "Schedule a reminder for [event]"
+- "Compare our performance with [competitor]"
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Integration Setup
 
-### Analyzing the Bundle Size
+### WooCommerce Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+1. Create API keys in your WooCommerce store:
+   - Go to WooCommerce > Settings > Advanced > REST API
+   - Add a new key with Read/Write permissions
+   - Copy the Consumer Key and Consumer Secret to your `.env` file
 
-### Making a Progressive Web App
+### Grok Integration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+1. Subscribe to X Premium+ or SuperGrok
+2. Set up your Grok API access through your account
+3. Copy your API key to the `.env` file
 
-### Advanced Configuration
+### n8n Setup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+1. Install n8n locally or use a hosted instance
+2. Import the workflow templates from the `n8n-workflows` directory
+3. Configure the workflow credentials for WooCommerce, social media, etc.
+4. Update the n8n base URL and API key in your `.env` file
 
-### Deployment
+## Customization
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+### Theme Customization
 
-### `npm run build` fails to minify
+The dashboard supports multiple themes including Light, Dark, and Luxury modes. Theme settings are managed via the ThemeContext provider.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+To customize the color scheme:
+
+1. Edit the theme variables in `src/contexts/ThemeContext.js`
+2. Update the CSS variables in `src/styles/App.css`
+
+### Adding New Dashboards
+
+To add a new dashboard section:
+
+1. Create a new component in the `components` directory
+2. Add the corresponding styles in the `styles` directory
+3. Update the routes in `App.js`
+4. Add the navigation link in `Sidebar.js`
+
+## Production Deployment
+
+For production deployment:
+
+1. Build the optimized application:
+
+   ```
+   npm run build
+   ```
+
+2. Deploy the contents of the `build` directory to your web server or hosting service
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- Chart.js for the visualization components
+- React-Icons for the icon library
+- n8n for the workflow automation
+- Grok xAI for the voice command capabilities
