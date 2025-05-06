@@ -1,0 +1,56 @@
+/* Create src/styles/NotFound.css */
+
+.not-found-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    padding: 20px;
+    background-color: var(--background-secondary);
+}
+
+.not-found-content {
+    text-align: center;
+    background-color: var(--background-primary);
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    max-width: 500px;
+    width: 100%;
+}
+
+.not-found-content h1 {
+    font-size: 80px;
+    margin: 0;
+    color: var(--secondary);
+    font-family: 'Playfair Display', serif;
+    line-height: 1;
+}
+
+.not-found-content h2 {
+    margin: 16px 0;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.not-found-content p {
+    margin-bottom: 24px;
+    color: var(--text-secondary);
+}
+
+.back-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: var(--secondary);
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.back-btn:hover {
+    background-color: #8154dc;
+    transform: translateY(-2px);
+}

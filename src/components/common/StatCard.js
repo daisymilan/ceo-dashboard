@@ -8,7 +8,8 @@ import {
   FaDollarSign, 
   FaBoxes,
   FaGlobe,
-  FaIndustry
+  FaIndustry,
+  FaEye
 } from 'react-icons/fa';
 import '../../styles/StatCard.css';
 
@@ -23,7 +24,8 @@ const StatCard = ({ title, value, change, icon, className }) => {
     'dollar-sign': <FaDollarSign />,
     'boxes': <FaBoxes />,
     'globe': <FaGlobe />,
-    'industry': <FaIndustry />
+    'industry': <FaIndustry />,
+    'eye': <FaEye />
   };
 
   // Determine which icon to use

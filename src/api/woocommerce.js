@@ -81,6 +81,52 @@ export const fetchOrderData = async (orderId = null, filters = {}) => {
   }
 };
 
+// Mock data for recent orders
+const getMockRecentOrders = () => {
+  return [
+    {
+      id: 'ORD-12345',
+      customer: 'Alexander Johnson',
+      date: new Date().toISOString(),
+      products: 'Duality (2)',
+      amount: 590,
+      status: 'Completed'
+    },
+    {
+      id: 'ORD-12346',
+      customer: 'Sophia Williams',
+      date: new Date(Date.now() - 3600000).toISOString(),
+      products: 'Moon Dust (1), Momento (1)',
+      amount: 550,
+      status: 'Processing'
+    },
+    {
+      id: 'ORD-12347',
+      customer: 'James Rodriguez',
+      date: new Date(Date.now() - 7200000).toISOString(),
+      products: 'Coda (1)',
+      amount: 295,
+      status: 'Processing'
+    },
+    {
+      id: 'ORD-12348',
+      customer: 'Emma Thompson',
+      date: new Date(Date.now() - 86400000).toISOString(),
+      products: 'Dahab (2), Coda (1)',
+      amount: 865,
+      status: 'Shipped'
+    },
+    {
+      id: 'ORD-12349',
+      customer: 'David Chen',
+      date: new Date(Date.now() - 172800000).toISOString(),
+      products: 'Duality (1), Moon Dust (1)',
+      amount: 570,
+      status: 'Completed'
+    }
+  ];
+};
+
 // Mock data functions for prototype development
 const getMockSalesData = (timeframe) => {
   // Labels for different timeframes
@@ -217,6 +263,9 @@ const getMockSalesData = (timeframe) => {
     }
   };
 
+  // Get recent orders
+  const recentOrders = getMockRecentOrders();
+
   return {
     totalRevenue: timeframe === 'daily' ? 24700 : timeframe === 'weekly' ? 157200 : 368000,
     revenueChange: timeframe === 'daily' ? 12 : timeframe === 'weekly' ? 8 : 15,
@@ -243,7 +292,8 @@ const getMockSalesData = (timeframe) => {
     
     topProducts: topProductsData[timeframe],
     salesByChannel: channelData[timeframe],
-    geographicDistribution: geoData[timeframe]
+    geographicDistribution: geoData[timeframe],
+    recentOrders
   };
 };
 
