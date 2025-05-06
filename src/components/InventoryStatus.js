@@ -9,7 +9,7 @@ import {
   Tooltip, 
   Legend
 } from 'chart.js';
-import { FaBoxes, FaExclamationTriangle, FaTruck, FaWarehouse } from 'react-icons/fa';
+import { FaBoxes, FaTruck, FaWarehouse } from 'react-icons/fa';
 import { useData } from '../contexts/DataContext';
 import DashboardCard from './common/DashboardCard';
 import StatCard from './common/StatCard';

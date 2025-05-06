@@ -1,5 +1,5 @@
 // woocommerce.js - API integration with WooCommerce
-import { executeN8nWorkflow } from './n8n';
+//import { executeN8nWorkflow } from './n8n';
 
 /**
  * Fetches sales data from WooCommerce via n8n

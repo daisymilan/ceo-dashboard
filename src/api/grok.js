@@ -10,6 +10,8 @@ const GROK_CONFIG = {
   model: process.env.REACT_APP_GROK_MODEL || 'grok-3'
 };
 
+console.log('Using Grok config:', GROK_CONFIG);
+
 /**
  * Process a voice command through Grok
  * 

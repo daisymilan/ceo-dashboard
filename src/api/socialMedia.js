@@ -15,6 +15,8 @@ const SOCIAL_CONFIG = {
   }
 };
 
+console.log('Using Social config:', SOCIAL_CONFIG);
+
 /**
  * Fetch social media metrics
  * 

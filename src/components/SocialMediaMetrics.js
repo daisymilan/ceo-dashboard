@@ -13,7 +13,7 @@ import {
   Legend,
   Filler
 } from 'chart.js';
-import { FaInstagram, FaTiktok, FaChartLine, FaUsers, FaEye, FaThumbsUp } from 'react-icons/fa';
+import {FaChartLine, FaUsers} from 'react-icons/fa';
 import { useData } from '../contexts/DataContext';
 import DashboardCard from './common/DashboardCard';
 import StatCard from './common/StatCard';

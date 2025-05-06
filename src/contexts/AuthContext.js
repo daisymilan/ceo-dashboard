@@ -1,5 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 // Create auth context
 const AuthContext = createContext();
@@ -66,8 +65,8 @@ export const AuthProvider = ({ children }) => {
     return tokenString;
   };
   
-  // Mock login function
-  const login = async (email, password) => {
+  // Mock login function - Wrapped in useCallback
+  const login = useCallback(async (email, password) => {
     setError(null);
     
     try {
@@ -99,16 +98,16 @@ export const AuthProvider = ({ children }) => {
       setError(error.message);
       return false;
     }
-  };
+  }, [mockUsers]); // Dependencies for useCallback
   
   // Logout function
-  const logout = () => {
+  const logout = useCallback(() => {
     // Remove token from localStorage
     localStorage.removeItem('auth-token');
     
     // Reset user state
     setUser(null);
-  };
+  }, []);
   
   // Check if token is valid
   const isTokenValid = (token) => {
@@ -167,7 +166,7 @@ export const AuthProvider = ({ children }) => {
     if (process.env.NODE_ENV === 'development' && !user && !loading) {
       login('chad@minnewyork.com', 'password123');
     }
-  }, [loading]);
+  }, [loading, login, user]); // Fixed: Added login and user to dependency array
   
   // Context value
   const value = {

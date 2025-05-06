@@ -1,11 +1,11 @@
 import React from 'react';
-import { FaBars, FaBell, FaUser, FaSun, FaMoon } from 'react-icons/fa';
+//import { FaBars, FaBell, FaUser, FaSun, FaMoon } from 'react-icons/fa';
 import { useTheme } from '../contexts/ThemeContext';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/Header.css';
 
 const Header = ({ toggleSidebar, title }) => {
-  const { currentTheme, changeTheme, availableThemes } = useTheme();
+  const { availableThemes } = useTheme();
   const { user } = useAuth();
 
   // Toggle between light and dark theme

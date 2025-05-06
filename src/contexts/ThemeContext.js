@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, useEffect } from 'react';
+import React, { createContext, useContext, useState, useEffect, useCallback } from 'react';
 
 // Create theme context
 const ThemeContext = createContext();
@@ -85,15 +85,15 @@ export const ThemeProvider = ({ children }) => {
   const [currentTheme, setCurrentTheme] = useState(getInitialTheme());
   const [theme, setTheme] = useState(themes[getInitialTheme()]);
 
-  // Change theme
-  const changeTheme = (themeName) => {
+  // Change theme - Wrapped in useCallback
+  const changeTheme = useCallback((themeName) => {
     if (themes[themeName]) {
       setCurrentTheme(themeName);
       setTheme(themes[themeName]);
       localStorage.setItem('dashboard-theme', themeName);
       applyThemeToDOM(themes[themeName]);
     }
-  };
+  }, [themes]); // Dependencies for useCallback
 
   // Apply theme to DOM
   const applyThemeToDOM = (themeObj) => {
@@ -135,7 +135,7 @@ export const ThemeProvider = ({ children }) => {
     mediaQuery.addEventListener('change', handleChange);
     
     return () => mediaQuery.removeEventListener('change', handleChange);
-  }, []);
+  }, [changeTheme]); // Fixed: Added changeTheme to dependency array
 
   // Context value
   const value = {

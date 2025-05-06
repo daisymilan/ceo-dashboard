@@ -1,5 +1,3 @@
-// Create a new file: src/components/LoginForm.js
-
 import React, { useState } from 'react';
 import { useAuth } from '../contexts/AuthContext';
 import '../styles/LoginForm.css';
@@ -58,7 +56,11 @@ const LoginForm = () => {
             />
           </div>
           
-          <button type="submit" className="login-button" disabled={loading}>
+          <button 
+            type="submit" 
+            className="login-button" 
+            disabled={loading}
+          >
             {loading ? <div className="button-spinner"></div> : 'Sign In'}
           </button>
           

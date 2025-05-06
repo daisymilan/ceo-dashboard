@@ -105,14 +105,14 @@ export const DataProvider = ({ children }) => {
   
   // Load initial data on mount
   useEffect(() => {
-    refreshAllData();
+  refreshAllData();
     
     // Set up refresh interval (every 5 minutes)
     const intervalId = setInterval(refreshAllData, 5 * 60 * 1000);
     
     // Clean up on unmount
     return () => clearInterval(intervalId);
-  }, []);
+}, [refreshAllData]); // Add refreshAllData to the dependency array
   
   // Update sales data when timeframe changes
   useEffect(() => {

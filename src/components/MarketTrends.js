@@ -19,9 +19,9 @@ import {
   Legend,
   Filler
 } from 'chart.js';
-import { FaSearch, FaChartLine, FaGlobe, FaUsers, FaIndustry } from 'react-icons/fa';
+import { FaChartLine, FaGlobe, FaUsers, FaIndustry } from 'react-icons/fa';
 import { useData } from '../contexts/DataContext';
-import { fetchMarketTrends, createForecast } from '../api/grok';
+import { fetchMarketTrends } from '../api/grok';
 import DashboardCard from './common/DashboardCard';
 import StatCard from './common/StatCard';
 import '../styles/MarketTrends.css';
